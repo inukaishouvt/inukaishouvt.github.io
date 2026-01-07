@@ -1,21 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary: #ffb7c5;
-    /* Sakura Pink */
-    --secondary: #b0e0e6;
+    --primary: #B9E2FA;
     /* Baby Blue */
-    --accent: #e6e6fa;
-    /* Lavender */
-    --bg-light: #fffafa;
-    /* Snow White */
+    --secondary: #89CFF0;
+    /* Sky Blue */
+    --accent: #FFB7C5;
+    /* Keeping Sakura Pink as a subtle accent */
+    --bg-light: #F4FAFD;
     --bg-card: rgba(255, 255, 255, 0.7);
-    --text-main: #5d5d5d;
-    /* Soft Grey */
-    --text-dim: #8e8e8e;
-    --glass-border: rgba(255, 183, 197, 0.2);
+    --text-main: #5A7B8F;
+    /* Softer blue-grey text */
+    --text-dim: #8EABB9;
+    --glass-border: rgba(185, 226, 250, 0.3);
     --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Bouncier */
 }
 
 * {
@@ -409,7 +407,7 @@ section {
 
 /* Live Stream Section */
 .live {
-    background: linear-gradient(180deg, transparent, rgba(176, 224, 230, 0.2), transparent);
+    background: linear-gradient(180deg, transparent, rgba(185, 226, 250, 0.2), transparent);
 }
 
 .twitch-container {
@@ -426,7 +424,7 @@ section {
     padding: 1rem;
     border-radius: 40px;
     border: 3px solid var(--primary);
-    box-shadow: 0 20px 60px rgba(255, 183, 197, 0.2);
+    box-shadow: 0 20px 60px rgba(137, 207, 240, 0.25);
     overflow: hidden;
     position: relative;
 }
@@ -459,11 +457,69 @@ section {
     margin-bottom: 1.5rem;
 }
 
+/* Tools (Setup) Section Styling */
+.setup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.setup-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.setup-card:hover {
+    transform: translateY(-5px);
+}
+
+.setup-card h4 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.setup-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.setup-card ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+/* Skills Image Icons Styling */
+.skill-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .twitch-container {
         aspect-ratio: auto;
         height: 450px;
+    }
+
+    .setup-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -484,3 +540,20 @@ section {
         display: block;
     }
 }
+/* Dynamic Text Rotator Styling */
+#dynamic-text {
+    display: inline-block;
+    min-width: 380px; /* Prevents layout jump for shorter/longer words */
+    color: var(--primary);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    #dynamic-text {
+        min-width: auto;
+        display: block; /* Stack on mobile for better fit */
+        margin-top: 5px;
+    }
+}
+

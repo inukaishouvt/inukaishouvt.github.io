@@ -58,12 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const navbarHeight = navbar.offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -78,3 +78,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Hero Text Rotator
+const dynamicText = document.getElementById('dynamic-text');
+const phrases = [
+    "FAILED IDOL WOLF",
+    "FULL-STACK DEVELOPER",
+    "CHILL VTUBER",
+    "CREATIVE STREAMER",
+    "UI/UX DESIGNER",
+    "TRILINGUAL CODER",
+    "WOLF BOY"
+];
+
+let phraseIndex = 0;
+
+function rotateText() {
+    if (!dynamicText) return;
+
+    // Smooth transition: fade out and slightly move down
+    dynamicText.style.opacity = '0';
+    dynamicText.style.transform = 'translateY(10px)';
+
+    setTimeout(() => {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        dynamicText.textContent = phrases[phraseIndex];
+
+        // Fade in and move back to original position
+        dynamicText.style.opacity = '1';
+        dynamicText.style.transform = 'translateY(0)';
+    }, 500);
+}
+
+// Initial setup for smooth transition
+if (dynamicText) {
+    dynamicText.style.transition = 'all 0.5s ease-in-out';
+    dynamicText.style.display = 'inline-block';
+
+    // Start rotation interval (every 2.5 seconds)
+    setInterval(rotateText, 2500);
+}
