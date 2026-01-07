@@ -436,6 +436,27 @@ section {
     height: 100%;
     border-radius: 25px;
     overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.twitch-fallback {
+    padding: 2rem;
+}
+
+.twitch-fallback h3 {
+    color: var(--secondary);
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.twitch-fallback p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Responsive adjustments */
